@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MS WORD || CLONE - By AzaanUllah Khan</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background-color: rgb(230, 230, 230);
+        }
+
+        .name {
+            width: 100%;
+            background-color: rgb(42 87 154);
+            font-size: 16px;
+            font-weight: lighter;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .main {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            border: 1px solid black;
+            padding: 20px;
+            background-color: rgb(241 241 241);
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            align-items: center;
+        }
+
+        .font-family {
+            background-color: white;
+            padding: 10px;
+        }
+
+        .font-family button {
+            background-color: transparent;
+            border: none;
+            font-weight: bolder;
+        }
+
+        button {
+            background-color: transparent;
+            border: none;
+            font-weight: bolder;
+        }
+
+        .row div {
+            background-color: white;
+            padding: 10px;
+        }
+
+        .row .yellow {
+            background-color: yellow;
+            height: 10px;
+            width: 10px;
+        }
+
+        .row .red {
+            background-color: red;
+            height: 10px;
+            width: 10px;
+        }
+
+        .row .blue {
+            height: 10px;
+            width: 10px;
+            background-color: blue;
+        }
+
+        .colors {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .row .costume {
+            height: 10px;
+            width: 10px;
+            background-color: gray;
+            color: white;
+            font-weight: bolder;
+        }
+
+        .row .padding {
+            width: 20%;
+            text-align: center;
+        }
+
+        .row .border {
+            width: 100%;
+            text-align: center;
+        }
+
+        .contant {
+            width: 100%;
+        }
+
+        .input {
+            width: 80%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+        }
+
+        .input textarea {
+            width: 90%;
+            margin: 0 auto;
+            outline: none;
+            height: 600px;
+            font-size: 14px;
+            padding: 30px;
+        }
+
+        .width button {
+            width: 100%;
+        }
+
+        button {
+            padding: 10px;
+            cursor: pointer;
+            transition: all 1s ease;
+        }
+
+        button:hover {
+            background-color: gainsboro;
+            border-radius: 30px;
+            opacity: 0.5;
+            font-weight: bold;
+        }
+
+        .count {
+            padding: 10px;
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+        }
+
+        .count div {
+            background-color: rgb(42 87 154);
+            margin-bottom: 5px;
+            color: white;
+            font-weight: bolder;
+            font-size: 15px;
+            padding: 15px;
+            border-radius: 30px;
+            box-shadow: 1px 1px 10px rgb(173, 173, 173);
+        }
+
+        .replace div {
+            background-color: rgb(42 87 154);
+            margin-bottom: 5px;
+            color: white;
+            font-weight: bolder;
+            font-size: 15px;
+            padding: 15px;
+            border-radius: 30px;
+            box-shadow: 1px 1px 10px rgb(173, 173, 173);
+        }
+
+        .replace {
+            padding: 10px;
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+        }
+
+        @media screen and (max-width: 1200px) {
+            .container {
+                width: 80%;
+                margin: 0 auto;
+            }
+
+            .main {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="name">
+        AzaanUllah Khan - MS Word Clone
+    </div>
+    <div class="main">
+        <div class="container">
+            <div class="row">
+                <div class="font-family" id="fontFamily">
+                    <button>FONT-FAMILY</button>
+                </div>
+                <div>
+                    <button id="inc">A^</button>
+                    <button id="dec">A|</button>
+                </div>
+                <div>
+                    <button id="case">CASE</button>
+                </div>
+                <div>
+                    <button id="clear">CLEAR</button>
+                </div>
+            </div>
+            <div class="row">
+                <div>
+                    <button id="b">B</button>
+                    <button id="i">I</button>
+                    <button id="u">U</button>
+                </div>
+                <div class="colors">
+                    <div class="red"></div>
+                    <div class="yellow"></div>
+                    <div class="blue"></div>
+                    <div class="costume" id="text-color">
+                        <>
+                    </div>
+                </div>
+                <div class="colors">
+                    <div class="red"></div>
+                    <div class="yellow"></div>
+                    <div class="blue"></div>
+                    <div class="costume" id="bg-color">
+                        <>
+                    </div>
+                </div>
+                <div>
+                    <button id="st">STRIKE THROUGH</button>
+                </div>
+            </div>
+        </div>
+        <div class="container width">
+            <div class="row">
+                <div class="padding">
+                    <button id="r">
+                        < </button>
+                </div>
+                <div class="padding" style="width: 40%;">
+                    <button id="c">-</button>
+                </div>
+                <div class="padding">
+                    <button id="l">></button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="border">
+                    <button id="borderr">BORDER COLOR</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="contant">
+        <div class="input">
+            <textarea id="textArea" cols="100" rows="10"></textarea>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="count">
+            <div class="word" onclick="words()">
+                Total Words are <span id="word"></span>
+            </div>
+            <div class="letter" onclick="letters()">
+                Total letters are <span id="letter"></span>
+            </div>
+        </div>
+    </div>
+    <div class="footer1">
+        <div class="replace">
+            <div class="replacer" onclick="replace()">
+                Replace
+            </div>
+        </div>
+    </div>
+    <script>
+        var textColorLink = document.getElementById("text-color");
+        var bgColorLink = document.getElementById("bg-color");
+        var fflink = document.getElementById("fontFamily");
+        var sentence = document.getElementById("case");
+        var finish = document.getElementById("clear");
+        var bold = document.getElementById("b")
+        var italic = document.getElementById("i")
+        var under = document.getElementById("u")
+        var strike = document.getElementById("st")
+        var b = document.getElementById("borderr")
+        var big = document.getElementById("inc")
+        var small = document.getElementById("dec")
+        var right = document.getElementById("r")
+        var center = document.getElementById("c")
+        var left = document.getElementById("l")
+
+        var workingArea = document.getElementById("textArea");
+
+        // Set the initial colors
+        var textColor = "black";
+        var bgColor = "white";
+        var ff = "Arial";
+        var s_c = "lower"
+        var emp = "";
+        var bc = "black"
+        var fs = "14px"
+
+        textColorLink.addEventListener("click", function () {
+            textColor = prompt("Enter a new text color:");
+            workingArea.style.color = textColor;
+        });
+
+        bgColorLink.addEventListener("click", function () {
+            bgColor = prompt("Enter a new background color:");
+            workingArea.style.backgroundColor = bgColor;
+        });
+        fflink.addEventListener("click", function () {
+            ff = prompt("Enter a new font-family:");
+            workingArea.style.fontFamily = ff;
+        });
+        sentence.addEventListener("click", function () {
+            s_c = prompt("Enter a case: lower || upper || capitalize");
+            workingArea.style.textTransform = s_c;
+        });
+        finish.addEventListener("click", function () {
+            location.reload()
+        });
+        bold.addEventListener("click", function () {
+            workingArea.style.fontWeight = "bolder";
+        });
+        under.addEventListener("click", function () {
+            workingArea.style.textDecoration = "underline";
+        });
+        italic.addEventListener("click", function () {
+            workingArea.style.fontStyle = "italic";
+        });
+        strike.addEventListener("click", function () {
+            workingArea.style.textDecoration = "line-through";
+        });
+        b.addEventListener("click", function () {
+            bc = prompt("Enter Border Color")
+            workingArea.style.border = "thick solid";
+            workingArea.style.borderColor = bc;
+        });
+        big.addEventListener("click", function () {
+            fs = prompt("Enter a Font Size to increase");
+            workingArea.style.fontSize = fs;
+        });
+        small.addEventListener("click", function () {
+            fs = prompt("Enter a Font Size to decrease");
+            workingArea.style.fontSize = fs;
+        });
+        right.addEventListener("click", function () {
+            workingArea.style.textAlign = "right";
+        });
+        center.addEventListener("click", function () {
+            workingArea.style.textAlign = "center";
+        });
+        left.addEventListener("click", function () {
+            workingArea.style.textAlign = "left";
+        });
+        function words() {
+            var w = document.getElementById('word');
+            var text = workingArea.value;
+            var wordLength = text.split(" ")
+            w.innerHTML = wordLength.length;
+        }
+        function letters() {
+            var l = document.getElementById('letter');
+            var letter = workingArea.value;
+            var Length = letter.split("")
+            l.innerHTML = Length.length;
+        }
+        function replace() {
+            var replaceLetter = prompt("Enter the letter to replace:");
+            var replacementLetter = prompt("Enter the replacement letter:");
+
+
+            var newText = workingArea.value.replaceAll(replaceLetter, replacementLetter);
+
+            workingArea.value = newText;
+        }
+    </script>
+</body>
+
+</html>
