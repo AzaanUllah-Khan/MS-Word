@@ -123,15 +123,19 @@
             margin: 0 auto;
             display: flex;
             justify-content: center;
+            background-color: white;
+            position: relative;
         }
 
         .input textarea {
-            width: 90%;
+            width: 100%;
             margin: 0 auto;
             outline: none;
             height: 600px;
             font-size: 14px;
             padding: 30px;
+            background-color: transparent;
+            z-index: 1;
         }
 
         .width button {
@@ -156,6 +160,7 @@
             position: fixed;
             bottom: 10px;
             right: 10px;
+            z-index: 10;
         }
 
         .count div {
@@ -169,22 +174,25 @@
             box-shadow: 1px 1px 10px rgb(173, 173, 173);
         }
 
-        .replace div {
-            background-color: rgb(42 87 154);
-            margin-bottom: 5px;
-            color: white;
-            font-weight: bolder;
-            font-size: 15px;
-            padding: 15px;
-            border-radius: 30px;
-            box-shadow: 1px 1px 10px rgb(173, 173, 173);
+
+
+        .watermark {
+            position: absolute;
+            top: 52%;
+            left: 32%;
         }
 
-        .replace {
-            padding: 10px;
-            position: fixed;
-            bottom: 10px;
-            left: 10px;
+
+
+        .watermark span {
+            width: 100%;
+            z-index: -1;
+            font-size: 150px;
+            font-weight: bolder;
+            color: #858585;
+            opacity: 0.3;
+            -webkit-transform: rotate(-25deg);
+            display: none;
         }
 
         @media screen and (max-width: 1200px) {
@@ -196,6 +204,25 @@
             .main {
                 flex-direction: column;
             }
+        }
+
+        .replace {
+            padding: 10px;
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            z-index: 10;
+        }
+
+        .replace div {
+            background-color: rgb(42 87 154);
+            margin-bottom: 5px;
+            color: white;
+            font-weight: bolder;
+            font-size: 15px;
+            padding: 15px;
+            border-radius: 30px;
+            box-shadow: 1px 1px 10px rgb(173, 173, 173);
         }
     </style>
 </head>
@@ -269,8 +296,11 @@
         </div>
     </div>
     <div class="contant">
-        <div class="input">
+        <div class="input" id="inp">
             <textarea id="textArea" cols="100" rows="10"></textarea>
+        </div>
+        <div class="watermark">
+            <span id="watermarkk"></span>
         </div>
     </div>
     <div class="footer">
@@ -287,6 +317,9 @@
         <div class="replace">
             <div class="replacer" onclick="replace()">
                 Replace
+            </div>
+            <div class="watermarker" onclick="water()">
+                W-M
             </div>
         </div>
     </div>
@@ -308,6 +341,7 @@
         var left = document.getElementById("l")
 
         var workingArea = document.getElementById("textArea");
+        var input = document.getElementById("inp");
 
         // Set the initial colors
         var textColor = "black";
@@ -325,7 +359,7 @@
 
         bgColorLink.addEventListener("click", function () {
             bgColor = prompt("Enter a new background color:");
-            workingArea.style.backgroundColor = bgColor;
+            inp.style.backgroundColor = bgColor;
         });
         fflink.addEventListener("click", function () {
             ff = prompt("Enter a new font-family:");
@@ -392,6 +426,12 @@
             var newText = workingArea.value.replaceAll(replaceLetter, replacementLetter);
 
             workingArea.value = newText;
+        }
+        function water() {
+            document.getElementById("watermarkk").style.display = "inline-block"
+            var thing = prompt("Water mark")
+            document.getElementById("watermarkk").innerHTML = thing
+
         }
     </script>
 </body>
